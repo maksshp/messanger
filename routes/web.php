@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::post('/home/create', function  () {
+//     return view('create');
+// });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/home','chatCreate@createChat')->name('home');
+
+Route::get('/home/create','chatCreate@showChats')->name('create');
+
+Route::get('/home','showUsers@showUsers')->name('home');
